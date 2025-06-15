@@ -1,0 +1,250 @@
+body {
+    background: linear-gradient(135deg, #aee9f7 0%, #f7e1ff 100%);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+}
+.bolo {
+    position: relative;
+    width: 180px;
+    height: 220px;
+    margin-bottom: 30px;
+}
+.camada {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+    background: #8d5524;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.camada1 {
+    width: 180px;
+    height: 60px;
+    bottom: 0;
+    background: #ffb400;
+    z-index: 1;
+    animation: bounce 2s infinite;
+}
+.camada2 {
+    width: 140px;
+    height: 50px;
+    bottom: 50px;
+    background: #d72660;
+    z-index: 2;
+    animation: bounce 2s 0.2s infinite;
+}
+.camada3 {
+    width: 100px;
+    height: 40px;
+    bottom: 90px;
+    background: #ffb400;
+    z-index: 3;
+    animation: bounce 2s 0.4s infinite;
+}
+.velas {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    width: 10px;
+    height: 40px;
+    background: #fff;
+    border-radius: 5px;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #fff, 0 0 20px #ffb400;
+    z-index: 4;
+    animation: flame 1s infinite alternate;
+}
+@keyframes flame {
+    0% { box-shadow: 0 0 10px #fff, 0 0 20px #ffb400; }
+    100% { box-shadow: 0 0 20px #fff, 0 0 40px #ffb400; }
+}
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) scaleY(1); }
+    50% { transform: translateX(-50%) scaleY(1.05); }
+}
+.bolo-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    z-index: 2;
+}
+.img-bolo {
+    max-width: 220px;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    background: #aee9f7;
+    padding: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.img-bolo:hover {
+    transform: scale(1.05) rotate(-2deg);
+    box-shadow: 0 8px 32px rgba(215,38,96,0.18);
+}
+.presentes-img {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+    z-index: 2;
+}
+.img-presentes {
+    max-width: 320px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    background: #aee9f7;
+    padding: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+}
+.img-presentes:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 8px 32px rgba(255,180,0,0.18);
+}
+.mensagem {
+    font-size: 2.5rem;
+    color: #d72660;
+    margin-top: 20px;
+    text-shadow: 2px 2px 8px #fff, 0 0 16px #ffb40088;
+    animation: pulse 1.5s infinite;
+    border: 4px dashed #ffb400;
+    border-radius: 18px;
+    background: #fffbe7cc;
+    padding: 18px 32px;
+    box-shadow: 0 2px 12px #ffb40033;
+    z-index: 2;
+}
+@keyframes pulse {
+    0%, 100% { color: #d72660; }
+    50% { color: #ffb400; }
+}
+.balao-wrapper, .balao-img, .mini-balao, .reflexo, .luz-base, .presentes, .presente, .presente1, .presente2 { display: none !important; }
+
+/* Balões animados em CSS puro */
+.balao {
+    position: absolute;
+    width: 54px;
+    height: 72px;
+    background: #ffb400;
+    border-radius: 60% 60% 60% 60% / 70% 70% 100% 100%;
+    box-shadow: 0 0 20px #ffb40088;
+    animation: subir 8s linear infinite;
+    z-index: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: visible;
+}
+.balao.b1 { left: 10%; background: #ffb400; animation-delay: 0s; }
+.balao.b2 { left: 30%; background: #d72660; animation-delay: 2s; }
+.balao.b3 { left: 60%; background: #6ec6ff; animation-delay: 4s; }
+.balao.b4 { left: 80%; background: #8d5524; animation-delay: 1s; }
+.balao::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 18%;
+    transform: translateX(-50%);
+    width: 28px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at 40% 30%, #fffbe7cc 60%, transparent 100%);
+    opacity: 0.7;
+    pointer-events: none;
+    filter: blur(1px);
+}
+.balao::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    width: 2px;
+    height: 32px;
+    background: #888;
+    margin-top: -2px;
+    border-radius: 1px;
+    transform: translateX(-50%);
+    z-index: -1;
+}
+@keyframes subir {
+    0% { bottom: -100px; opacity: 0.7; }
+    80% { opacity: 1; }
+    100% { bottom: 110vh; opacity: 0; }
+}
+
+/* Confete animado */
+.confete {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    opacity: 0.85;
+    z-index: 1;
+    animation: cairConfete 4s linear infinite;
+}
+.confete.c1 { left: 10%; background: #ffb400; animation-delay: 0s; }
+.confete.c2 { left: 20%; background: #d72660; animation-delay: 0.8s; }
+.confete.c3 { left: 35%; background: #6ec6ff; animation-delay: 1.2s; }
+.confete.c4 { left: 50%; background: #8d5524; animation-delay: 0.4s; }
+.confete.c5 { left: 65%; background: #ffb400; animation-delay: 1.6s; }
+.confete.c6 { left: 80%; background: #d72660; animation-delay: 0.6s; }
+.confete.c7 { left: 90%; background: #6ec6ff; animation-delay: 1.1s; }
+@keyframes cairConfete {
+    0% { top: -20px; opacity: 0.8; transform: translateX(0) rotate(0deg) scale(1); }
+    30% { opacity: 1; }
+    50% { transform: translateX(20px) rotate(30deg) scale(1.1); }
+    70% { transform: translateX(-15px) rotate(-20deg) scale(0.95); }
+    100% { top: 110vh; opacity: 0; transform: translateX(0) rotate(0deg) scale(1); }
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+    .bolo-img, .img-bolo { max-width: 160px !important; }
+    .img-presentes { max-width: 200px !important; }
+    .mensagem { font-size: 1.5rem; padding: 12px 10px; }
+    .balao { width: 38px; height: 52px; }
+}
+@media (max-width: 600px) {
+    .container { padding: 0 2vw; }
+    .bolo-img, .img-bolo { max-width: 110px !important; }
+    .img-presentes { max-width: 120px !important; }
+    .mensagem { font-size: 1.1rem; padding: 8px 4px; }
+    .balao { width: 22px; height: 32px; }
+    .confete { width: 7px; height: 7px; }
+}
+@media (max-width: 400px) {
+    .mensagem { font-size: 0.9rem; padding: 4px 2px; }
+}
+
+/* Adicionar estilo para a assinatura */
+.assinatura {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    font-size: 1.2rem;
+    color: #d72660;
+    z-index: 10;
+}
+
+/* Estilo para a pequena seta (indicativa) */
+.seta { font-size: 0.8rem; color: #888; text-align: center; }
+
+/* Estilo para a dica (texto indicativo) */
+.dica { display: inline; font-size: 0.8rem; color: #888; text-align: center; }
+
+/* Estilo para centralizar a dica (seta e texto) em todos os dispositivos */
+.dica-wrapper { display: flex; justify-content: center; align-items: center; }
