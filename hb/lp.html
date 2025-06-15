@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Aniversário Jose!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="assinatura"> Made By Matheus :> </div>
+    <div class="container">
+        <div class="bolo-img">
+            <a href="https://www.youtube.com/watch?v=90w2RegGf9w" target="_blank" rel="noopener noreferrer">
+                <img src="ilustracao-de-bolo-de-aniversario-sobre-branco_18591-82104.avif" alt="Bolo de aniversário" class="img-bolo">
+                <div class="dica-wrapper">
+                    <span class="seta">→</span> <span class="dica">coma o bolo</span>
+                </div>
+            </a>
+        </div>
+        <div class="presentes-img">
+            <a href="https://www.youtube.com/watch?v=sfHgBUgXmEA" target="_blank" rel="noopener noreferrer">
+                <img src="grupo-de-caixa-de-presente-no-fundo-branco_1308-134810.avif" alt="Presentes de aniversário" class="img-presentes">
+                <div class="dica-wrapper">
+                    <span class="seta">→</span> <span class="dica">abre seu presente</span>
+                </div>
+            </a>
+        </div>
+        <h1 class="mensagem">Feliz Aniversário, Jose! 🎉</h1>
+    </div>
+    <!-- Balões animados com imagens -->
+    <div class="balao b1"></div>
+    <div class="balao b2"></div>
+    <div class="balao b3"></div>
+    <div class="balao b4"></div>
+    <!-- Confete animado -->
+    <div class="confete c1"></div>
+    <div class="confete c2"></div>
+    <div class="confete c3"></div>
+    <div class="confete c4"></div>
+    <div class="confete c5"></div>
+    <div class="confete c6"></div>
+    <div class="confete c7"></div>
+    <script>
+        // Animação de texto
+        const mensagem = document.querySelector('.mensagem');
+        mensagem.animate([
+            { transform: 'scale(1)', color: '#d72660' },
+            { transform: 'scale(1.1)', color: '#ffb400' },
+            { transform: 'scale(1)', color: '#d72660' }
+        ], {
+            duration: 1500,
+            iterations: Infinity
+        });
+    </script>
+</body>
+</html>
